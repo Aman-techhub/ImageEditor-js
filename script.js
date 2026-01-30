@@ -1,5 +1,5 @@
 let image = new Image();
-let imageLoaded = false;   // ✅ important flag
+let imageLoaded = false;   
 
 let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
@@ -15,7 +15,7 @@ let hueRotateSlider  = document.getElementById("hueRotateSlider");
 // Upload image
 function uploadImage(event) {
     const file = event.target.files[0];
-    if (!file) return;              // ✅ prevents crash
+    if (!file) return;            
 
     image.src = URL.createObjectURL(file);
     image.onload = function () {
@@ -28,7 +28,7 @@ function uploadImage(event) {
 
 // Apply filters
 function applyFilter() {
-    if (!imageLoaded) return;        // ✅ prevents error
+    if (!imageLoaded) return;      
 
     ctx.filter = `
         brightness(${brightnessSlider.value}%)
@@ -75,7 +75,7 @@ sliders.forEach(slider => {
 
     slider.addEventListener("input", () => {
         updateSliderColor(slider);
-        applyFilter(); // already exists in your project
+        applyFilter(); 
     });
 });
 
@@ -88,11 +88,11 @@ function updateSliderColor(slider) {
 
     /* Grading logic */
     if (percent < 40) {
-        color = "#00c6ff";   // Blue
+        color = "#00c6ff";   
     } else if (percent < 70) {
-        color = "#fbd786";   // Yellow
+        color = "#fbd786";  
     } else {
-        color = "#ff512f";   // Red
+        color = "#ff512f";  
     }
 
     slider.style.background = `
