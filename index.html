@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Image Editor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <h1>Image Editor</h1>
+    <button onclick="saveImage()">Save</button>
+    <button onclick="resetImage()">Reset</button>
+</header>
+
+<div class="container">
+
+    <div class="image-preview">
+        <!-- Default canvas size added -->
+        <canvas id="canvas" width="400" height="300"></canvas>
+    </div>
+
+    <div class="controls">
+        <input type="file" accept="image/*" onchange="uploadImage(event)">
+
+        <h3>Filters</h3>
+
+        <label>Brightness</label>
+        <input type="range" id="brightnessSlider" min="0" max="300" value="100" onchange="applyFilter()">
+
+        <label>Contrast</label>
+        <input type="range" id="contrastSlider" min="0" max="200" value="100" onchange="applyFilter()">
+
+        <label>Grayscale</label>
+        <input type="range" id="grayscaleSlider" min="0" max="100" value="0" onchange="applyFilter()">
+
+        <label>Saturation</label>
+        <input type="range" id="saturationSlider" min="0" max="300" value="100" onchange="applyFilter()">
+
+        <label>Sepia</label>
+        <input type="range" id="sepiaSlider" min="0" max="200" value="0" onchange="applyFilter()">
+
+        <label>Hue</label>
+        <input type="range" id="hueRotateSlider" min="0" max="360" value="0" onchange="applyFilter()">
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
